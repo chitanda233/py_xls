@@ -1,8 +1,9 @@
 import xlwings as xlv
-import getMonsterLv
+import GetMonsterLv
+import timeit
 
 
-def getMonList():
+def get_mon_list():
     dx = []
     ap1 = xlv.App(visible=False, add_book=False)
     ap1.display_alerts = False
@@ -17,5 +18,9 @@ def getMonList():
     ap1.quit()
     return dx
 
-print(getMonList())
-print(getMonsterLv.getMonLv('ahh', 46))
+
+# start = timeit.default_timer()
+# print(get_mon_list())
+# print(GetMonsterLv.get_monster_lv('单打', 46))
+# end = timeit.default_timer()
+# print(str(end - start))

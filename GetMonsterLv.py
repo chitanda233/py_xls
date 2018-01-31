@@ -1,9 +1,9 @@
 import xlwings as xlv
 
 
-def getMonLv(leveltype, gamelevel):
-    level_type = leveltype
-    game_level = gamelevel
+def get_monster_lv(level_type, game_level):
+    level_type = level_type
+    game_level = game_level
 
     level_row_sht1 = 0
     level_row_sht2 = 0
@@ -56,4 +56,3 @@ def getMonLv(leveltype, gamelevel):
     return dicts
 
 
-print(getMonLv('单打', 46))

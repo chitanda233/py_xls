@@ -1,10 +1,10 @@
 import xlwings as xw
-import getMonster
-import getMonsterLv
+import GetMonsterList
+import GetMonsterLv
 app = xw.App(visible=False, add_book=False)
 wb = app.books.add()
-dx=getMonster.getMonList()
-dl = getMonsterLv.getMonLv('单打', 46)
+dx=GetMonsterList.get_mon_list()
+dl = GetMonsterLv.get_monster_lv('单打', 46)
 
 
 wb.save("输出怪物.xlsx")
