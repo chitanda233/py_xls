@@ -25,18 +25,14 @@ rng_all = sht.range((1, 1), (nrow, ncol))
 rng_name = sht.range((1, 1), (nrow, 1))
 keyword = "侦察机"
 level = "1档"
-L2 = []
 
-#先找到队应名字的怪物
+L2 = []
+L3 = []
+#先找到队应名字的怪物,存到L2里面
 for name in rng_name:
     if name.value == keyword:
         L1 = rng_all.rows[name.row - 1]
         L2.append(L1)
-L3 = []
-
-print("-----L2-------")
-print(L2)
-print("------L2---------")
 
 for mon_row in L2:
     if (mon_row(1, 2).value == level):

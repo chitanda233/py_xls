@@ -11,7 +11,6 @@ def getMonList():
     nrow = sht1.api.UsedRange.Rows.count
     # ncol = sht1.api.UsedRange.Columns.count
     rng_monster = sht1.range((1, 1), (nrow, 1))
-    num = 1
     for x in rng_monster:
         dx.append(x.value)
     wb1.close()
