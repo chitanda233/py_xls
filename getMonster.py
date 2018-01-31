@@ -1,5 +1,5 @@
 import xlwings as xlv
-import getMonsterLV
+import getMonsterLv
 
 
 def getMonList():
@@ -18,4 +18,4 @@ def getMonList():
     return dx
 
 print(getMonList())
-print(getMonsterLV.getMonLV('ahh',46))
+print(getMonsterLv.getMonLv('ahh', 46))
