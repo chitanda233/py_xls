@@ -31,17 +31,18 @@ rng_all_old_name = sht_old_monster.range((1, 1), (row_all_old_monster, 1))
 monster_list = gmlist.get_mon_list()
 print(monster_list)
 monster_lv = gmlv.get_monster_lv("单打", 46)
-print(monster_lv)
+# print(monster_lv)
 
+# 实际上需要的怪物名字比较长，但是列表里面的只是单独的名字，所以需要正反两次比较，然后填充出一个比较完整的怪物列表来
 for monster in monster_list:
-    print("开始输出monster："+monster)
+    # print("开始输出monster： "+monster)
     for key in monster_lv.keys():
         # print("开始输出key"+key)
         if str(key) == monster:
             pass
         elif str(key) in monster:
-            monster_lv[key]=monster_lv[key]
-        elif monster in (key):
+            monster_lv[key] = monster_lv[key]
+        elif monster in str(key):
             monster_lv[monster]=monster_lv[key]
 
 
@@ -52,7 +53,7 @@ for mon in monster_list:
     level = monster_lv[keyword]
     L2 = []
     L3 = []
-    # 先找到队应名字的怪物,存到L2里面
+    # 先找到对应名字的怪物,存到L2里面
     for name in rng_all_old_name:
         if (keyword in name.value) or (name.value in keyword):
             L1 = rng_all_old_monster.rows[name.row - 1]

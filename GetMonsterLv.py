@@ -35,19 +35,20 @@ def get_monster_lv(level_type, game_level):
                 level_row_sht1 = x.row
         num_sht1 = 1
         # 循环把这一行搞成一个dict
-        for x in rng_sht1.rows[0]:
-            key = x.value
-            word = sht1.range(level_row_sht1, num_sht1).value
+        for x1 in rng_sht1.rows[0]:
+            key = x1.value
+            word = str(sht1.range(level_row_sht1, num_sht1).value)
             dicts[key] = word
             num_sht1 = num_sht1 + 1
 
-        for x in rng_sht2:
-            if x.value == game_level:
-                level_row_sht2 = x.row
+        # 在第二个页签做相同的处理
+        for y in rng_sht2:
+            if y.value == game_level:
+                level_row_sht2 = y.row
         num_sht2 = 1
-        for x in rng_sht2.rows[0]:
-            key = x.value
-            word = sht2.range(level_row_sht2, num_sht2).value
+        for y1 in rng_sht2.rows[0]:
+            key = y1.value
+            word = str(sht2.range(level_row_sht2, num_sht2).value)
             dicts[key] = word
             num_sht2 = num_sht2 + 1
 
