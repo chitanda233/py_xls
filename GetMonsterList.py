@@ -13,7 +13,8 @@ def get_mon_list():
     # ncol = sht1.api.UsedRange.Columns.count
     rng_monster = sht1.range((1, 1), (nrow, 1))
     for x in rng_monster:
-        dx.append(x.value)
+        if not('固定' in x):
+            dx.append(x.value)
     wb1.close()
     ap1.quit()
     return dx
