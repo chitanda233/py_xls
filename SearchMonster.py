@@ -31,7 +31,11 @@ rng_all_new_name = sht_all_monster.range((1, 1), (row_all_new_monster, 1))
 
 monster_list = gmlist.get_mon_list()
 print(monster_list)
-monster_lv = gmlv.get_monster_lv("单打", 46)
+# "单打" "双打"
+m_level_type = "单打"
+m_level_type = "双打"
+m_level = 27
+monster_lv = gmlv.get_monster_lv(m_level_type, 27)
 # print(monster_lv)
 monster_lvf = {}
 
@@ -40,7 +44,7 @@ monster_lvf = {}
 # 如果正反都没有，固定设置一个1档
 for monster in monster_list:
     # print("开始输出monster： "+monster)
-    if monster != 0.0:
+    try:
         for key in monster_lv.keys():
             # print("开始输出key"+key)
             if key == monster:
@@ -51,6 +55,8 @@ for monster in monster_list:
                 monster_lvf[key] = monster_lv[key]
             else:
                 monster_lvf[monster] = "1档"
+    except:
+        print("组装等级表错误： " + monster)
 print(monster_lvf)
 
 for m in monster_list:
@@ -63,14 +69,13 @@ for m in monster_list:
         L2 = []
         L3 = []
         # 找到对应怪物名字，存L2
-
         for name in rng_all_new_name:
-            if not name is None:
+            if name is not None:
                 # 严格相等
                 if keyword == name.value:
                     L1 = rng_all_new_monster.rows[name.row - 1]
                     L2.append(L1)
-        if L2!=[]:
+        if not L2 == []:
             for mon_row in L2:
                 if mon_row(1, 2).value == level:
                     start = 'A' + str(nrow_out)
