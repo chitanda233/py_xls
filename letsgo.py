@@ -1,9 +1,14 @@
-st1="驱逐舰-单管"
-st2="驱逐舰"
+import xlwings as xlv
 
-if st1 in st2:
-    print("yahaha")
-elif st2 in st1:
-    print("shayayaya")
-print(st1.find(st2))
-print(st2.find(st1))
+ap1 = xlv.App(visible=False, add_book=False)
+ap1.display_alerts = False
+
+wb2 = ap1.books.open("技能复制.xlsx")
+sht2 = wb2.sheets["Sheet2"]
+rng3 = sht2.range("A1:E17")
+
+sht2.range("A1").value="HADHFASDHF"
+
+wb2.save()
+wb2.close()
+ap1.quit()
